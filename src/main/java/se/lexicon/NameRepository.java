@@ -1,5 +1,7 @@
 package se.lexicon;
 
+import java.util.Arrays;
+
 /**
  * The NameRepository class provides methods to manage a list of names.
  * It offers functionalities such as adding, removing, finding, and updating names.
@@ -16,7 +18,8 @@ public class NameRepository {
      */
     public static int getSize() {
         //todo: PART 1: implement getSize method
-        return 0;
+
+        return names.length;
     }
 
 
@@ -27,6 +30,8 @@ public class NameRepository {
      */
     public static void setNames(final String[] names) {
         //todo: PART 1: implement setNames method
+
+        NameRepository.names = names;
     }
 
 
@@ -35,6 +40,8 @@ public class NameRepository {
      */
     public static void clear() {
         //todo: PART 1: implement clear method
+
+        names = new String[0];
     }
 
 
@@ -45,7 +52,8 @@ public class NameRepository {
      */
     public static String[] findAll() {
         //todo: PART 1: implement findAll method
-        return null;
+
+        return Arrays.copyOf(names, names.length);
     }
 
 
@@ -57,7 +65,11 @@ public class NameRepository {
      */
     public static String find(final String fullName) {
         //todo: PART 2: implement find method
-        return null;
+
+        for(String name : names) {
+            if(name.equalsIgnoreCase(fullName)) {
+            return name;
+        }
     }
 
 
