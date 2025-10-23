@@ -166,8 +166,26 @@ public class NameRepository {
      */
     public static boolean remove(final String fullName) {
         //todo: PART 4: implement remove method
-        return false;
+
+        String[] newArray = new String[names.length];
+        // copy all elements except "fullName"
+        for (int i=0, j=0; i < names.length; i++) {
+            if (!names[i].equalsIgnoreCase(fullName)) {
+                newArray[j] = names[i];
+                j++;
+            }
+        }
+        boolean isRemoved = newArray[newArray.length-1] == null;
+        // make length of newArray -1
+        if (isRemoved) {
+            newArray = Arrays.copyOf(newArray, newArray.length-1);
+        }
+        // update names
+        setNames(newArray);
+        //
+        return isRemoved;
     }
+
 
 
 }
