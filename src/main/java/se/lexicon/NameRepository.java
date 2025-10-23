@@ -66,10 +66,12 @@ public class NameRepository {
     public static String find(final String fullName) {
         //todo: PART 2: implement find method
 
-        for(String name : names) {
-            if(name.equalsIgnoreCase(fullName)) {
-            return name;
+        for (String name : names) {
+            if (name.equalsIgnoreCase(fullName)) {
+                return name;
+            }
         }
+        return null;
     }
 
 
@@ -81,6 +83,13 @@ public class NameRepository {
      */
     public static boolean add(final String fullName) {
         //todo: PART 2: implement add method
+
+        Arrays.sort(names);
+        if (Arrays.binarySearch(names, fullName) < 0){
+            names = Arrays.copyOf(names,names.length+1);
+            names[names.length-1] = fullName;
+            return true;
+        }
         return false;
     }
 
